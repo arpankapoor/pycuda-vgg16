@@ -11,8 +11,8 @@ from labels import IMAGENET_LABELS
 
 
 CUDA_SRC = """
-__global__ void conv2d(float *inp, float *out, float *w, float *b,
-                       int inp_channels, int ksize) {
+__global__ void conv2d(const float *inp, float *out, const float *w,
+                       const float *b, int inp_channels, int ksize) {
   int channel_num = threadIdx.x;
   int out_channels = blockDim.x;
 
